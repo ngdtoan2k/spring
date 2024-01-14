@@ -15,10 +15,10 @@ public class CustomerGreeingController {
     private  final AtomicLong couter = new AtomicLong();
     @GetMapping("/greeing")
     public Greeting greeting(@RequestParam(value = "gender" ,defaultValue = "0")boolean gender,
-                         @RequestParam(value = "custumerName", defaultValue = "custumer") String custumerName ){
+                         @RequestParam(value = "customerName", defaultValue = "custumer") String customerName ){
         return Greeting.builder()
                 .id(couter.incrementAndGet())
-                .content(String.format(greetingTemplate,gender ?"Mr.":"Mrs.",custumerName))
+                .content(String.format(greetingTemplate,gender ?"Mr.":"Mrs.",customerName))
                 .build();
     }
 }

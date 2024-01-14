@@ -17,23 +17,7 @@ import javax.sql.DataSource;
 
 @Configuration
 public class SecurityConfig {
-//    @Bean
-//    public UserDetailsService userDetailsService(DataSource dataSource){
-//        UserDetails user = User.builder()
-//                .username("userc")
-//                .password("$2a$10$LOZKsbxtwxEI0Re8XHk4tO/Es5PnVw9BVqaVUqKbHjCL1OwFXo4KW")
-//                .roles("USER")
-//                .build();
-//        UserDetails admin = User.builder()
-//                .username("adminc")
-//                .password("$2a$10$2lomTy1/aJGxlhj3EINhRewVdMpTvjtGriQrovqk3prYJU9eNvMx.")
-//                .roles("USER","ADMIN")
-//                .build();
-//        JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
-//        users.createUser(user);
-//        users.createUser(admin);
-//        return users;
-//    }
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -52,8 +36,8 @@ public class SecurityConfig {
 //    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 //        http
 //                 .authorizeHttpRequests(requests -> requests
-//                        .requestMatchers("/v1/greeing")/*.hasAnyRole("SCHUELER", "LEHRER", "VERWALTUNG")
-//                         .anyRequest()*/.authenticated()
+//                        .requestMatchers("/v1/greeing").hasAnyRole("admin")
+//                         .anyRequest().authenticated()
 //                )
 //                .formLogin(form -> form
 //                        .loginPage("/v1/register")
